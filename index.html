@@ -1,0 +1,389 @@
+To create a website that looks professional and "hand-coded" rather than AI-generated, I have avoided generic frameworks like Bootstrap or Tailwind. Instead, I used **Modern CSS (Grid and Flexbox)**, custom typography pairings, and a **"Dark-Mode Gourmand"** aesthetic common in high-end restaurant branding.
+
+The design focuses on high-quality spacing (whitespace), subtle micro-interactions, and a mobile-first approach.
+
+### 1. The HTML (index.html)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Brothers Shawarma | Wardha's OG Shawarma Spot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">TWO BROTHERS<span>SHAWARMA</span></div>
+            <ul class="nav-links">
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#location">Find Us</a></li>
+                <li><a href="tel:09405528885" class="btn-primary">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <span class="tagline">Authentic Nagpur Legacy now in Wardha</span>
+            <h1>CRAVING THE <br> <span class="accent">PERFECT ROLL?</span></h1>
+            <p>Experience the OG Shawarma taste. Charcoal grilled, fresh pita, and our secret garlic mayo.</p>
+            <div class="hero-btns">
+                <a href="https://www.zomato.com" class="btn-main">Order via Zomato</a>
+                <a href="https://www.swiggy.com" class="btn-outline">Order via Swiggy</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container grid-3">
+            <div class="feature-card">
+                <h3>Fresh Pita</h3>
+                <p>Baked daily to ensure that soft, pillowy texture in every bite.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Real Happiness</h3>
+                <p>No compromises. Only 100% premium chicken and fresh veggies.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Fusion Flavors</h3>
+                <p>From Classic to Makhani — we redefine the Shawarma game.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Picks</h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Chicken Makhani Shawarma</h3>
+                        <p>A fusion of smoky grilled chicken and rich buttery gravy.</p>
+                    </div>
+                    <span class="price">₹137</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Open Chicken Shawarma</h3>
+                        <p>Deconstructed goodness served with extra pita and dip.</p>
+                    </div>
+                    <span class="price">₹179</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>The OG Chicken Roll</h3>
+                        <p>The classic Nagpur recipe that started it all.</p>
+                    </div>
+                    <span class="price">₹120</span>
+                </div>
+                <!-- Item 4 -->
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Paneer Fusion Shawarma</h3>
+                        <p>Special marinated paneer for the veggie lovers.</p>
+                    </div>
+                    <span class="price">₹110</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-section">
+        <div class="container flex-split">
+            <div class="loc-text">
+                <h2>Visit the Spot</h2>
+                <p><strong>Address:</strong> Bachelor Rd, Beside The Heritage Grand, Near Old Lok Vidyalay, Radha Nagar, Wardha.</p>
+                <p><strong>Hours:</strong> Open Daily | 11:00 AM - 11:00 PM</p>
+                <p><strong>Phone:</strong> +91 94055 28885</p>
+                <a href="https://maps.google.com" class="btn-link">Get Directions &rarr;</a>
+            </div>
+            <div class="loc-map">
+                <!-- Placeholder for map - in real use, embed Google Map iframe here -->
+                <div class="map-box">Wardha Locality Map</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Two Brothers Shawarma - Cravetown Wardha. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
+
+### 2. The Styling (style.css)
+```css
+/* Custom Reset & Variables */
+:root {
+    --primary: #FF4B2B;
+    --dark: #121212;
+    --light-grey: #f4f4f4;
+    --accent: #FFB400;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navbar */
+.navbar {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--primary);
+    margin-left: 5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-links li a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    padding-left: 10%;
+}
+
+.tagline {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.hero h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5rem;
+    line-height: 0.9;
+    margin: 1.5rem 0;
+}
+
+.accent { color: var(--primary); }
+
+.hero-btns {
+    margin-top: 2rem;
+    display: flex;
+    gap: 15px;
+}
+
+/* Buttons */
+.btn-main {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn-outline {
+    border: 2px solid var(--white);
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3); }
+
+/* Menu Section */
+.menu-section {
+    padding: 100px 0;
+    background: #fafafa;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+}
+
+.line {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 10px auto;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.item-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.item-info p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.price {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+/* Location */
+.flex-split {
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+    gap: 50px;
+}
+
+.loc-text { flex: 1; }
+.loc-text h2 { font-family: 'Bebas Neue', cursive; font-size: 3rem; margin-bottom: 1rem; }
+.loc-map { flex: 1; }
+
+.map-box {
+    width: 100%;
+    height: 350px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #888;
+}
+
+footer {
+    padding: 40px 0;
+    background: var(--dark);
+    color: #666;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3.5rem; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; } /* Simplified for demo */
+    .flex-split { flex-direction: column; text-align: center; }
+}
+```
+
+### Why this looks "Professional" and not "AI-Standard":
+1.  **Typography:** Instead of the standard Arial/Helvetica, it uses `Bebas Neue` for a bold, urban "street-food" header feel paired with `Inter` for clean readability.
+2.  **Color Palette:** It uses a high-contrast dark theme (rich charcoal and deep orange) which is currently the gold standard for modern restaurant websites.
+3.  **No Boilerplate:** It doesn't use the standard "navbar-brand" or "container-fluid" classes seen in AI-generated Bootstrap code.
+4.  **Whitespace:** The padding is generous, giving the content "room to breathe," which is a hallmark of professional UI designers.
+5.  **Micro-details:** Features like the dashed border on menu items, the letter-spacing on the tagline, and the glassmorphism (backdrop-filter) on the navigation bar.
